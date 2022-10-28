@@ -1,5 +1,7 @@
 package com.mmacedo.datastructure.vector;
 
+import java.util.Arrays;
+
 public class Vector {
 
     private String[] elements;
@@ -27,6 +29,25 @@ public class Vector {
             return true;
         }
         return false;
+    }
 
+    public int size() {
+        return size;
+    }
+
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("[");
+        for (int i = 0; i < size - 1; i++) {
+            sb.append(elements[i]);
+            sb.append(", ");
+
+        }
+
+        if (this.size > 0) {
+            sb.append(this.elements[this.size - 1]);
+        }
+        sb.append("]");
+        return sb.toString();
     }
 }
