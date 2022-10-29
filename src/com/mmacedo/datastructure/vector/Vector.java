@@ -37,6 +37,16 @@ public class Vector {
         }
         return this.elements[position];
     }
+    
+    public int searchIfExists(String element) {
+        for(int i = 0; i < size; i++) {
+            if (elements[i].equals(element)) {
+                return i;
+            }
+        }
+
+        return -1;
+    }
 
     public int size() {
         return size;
