@@ -2,7 +2,7 @@ package com.mmacedo.datastructure.test;
 
 import com.mmacedo.datastructure.vector.Vector;
 
-public class Class07 {
+public class Class08 {
 
     public static void main(String[] args) {
 
@@ -13,11 +13,7 @@ public class Class07 {
         vector.addNewElement("E");
         vector.addNewElement("F");
         vector.addNewElement("G");
-        System.out.println(vector.size());
-        vector.addNewElement("D", 2);
-        vector.addNewElement("A", 0);
-        System.out.println(vector.size());
 
-        System.out.println(vector.toString());
+        System.out.println(vector);
     }
 }

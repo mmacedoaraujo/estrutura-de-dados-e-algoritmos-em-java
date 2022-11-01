@@ -21,6 +21,7 @@ public class Vector {
     */
 
     public boolean addNewElement(String element) {
+        this.addMoreCapacity();
         if (this.size < this.elements.length) {
             this.elements[this.size] = element;
             this.size++;
@@ -30,44 +31,55 @@ public class Vector {
     }
 
     public void addNewElement(String element, int position) {
-        if (!(position >= 0 && position < size)) {
+        if (!(position >= 0 && position < this.size)) {
             throw new IllegalArgumentException("Invalid position");
         }
 
-        for (int i = size - 1; i >= position; i--) {
-            elements[i + 1] = elements[i];
+        this.addMoreCapacity();
+
+        for (int i = this.size - 1; i >= position; i--) {
+            this.elements[i + 1] = this.elements[i];
 
         }
-        elements[position] = element;
-        size++;
+        this.elements[position] = element;
+        this.size++;
+    }
+
+    private void addMoreCapacity() {
+        if (this.size == this.elements.length) {
+            String[] newElementsVector = new String[this.elements.length * 2];
+            for (int i = 0; i < this.elements.length; i++) {
+                newElementsVector[i] = this.elements[i];
+            }
+            this.elements = newElementsVector;
+        }
     }
 
     public String search(int position) {
-        if (!(position >= 0 && position < size)) {
+        if (!(position >= 0 && position < this.size)) {
             throw new IllegalArgumentException("Invalid position");
         }
         return this.elements[position];
     }
 
     public int searchIfExists(String element) {
-        for (int i = 0; i < size; i++) {
-            if (elements[i].equals(element)) {
+        for (int i = 0; i < this.size; i++) {
+            if (this.elements[i].equals(element)) {
                 return i;
             }
         }
-
         return -1;
     }
 
     public int size() {
-        return size;
+        return this.size;
     }
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("[");
-        for (int i = 0; i < size - 1; i++) {
-            sb.append(elements[i]);
+        for (int i = 0; i < this.size - 1; i++) {
+            sb.append(this.elements[i]);
             sb.append(", ");
 
         }
