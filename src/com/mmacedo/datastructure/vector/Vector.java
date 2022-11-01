@@ -1,7 +1,5 @@
 package com.mmacedo.datastructure.vector;
 
-import java.util.Arrays;
-
 public class Vector {
 
     private String[] elements;
@@ -31,15 +29,28 @@ public class Vector {
         return false;
     }
 
+    public void addNewElement(String element, int position) {
+        if (!(position >= 0 && position < size)) {
+            throw new IllegalArgumentException("Invalid position");
+        }
+
+        for (int i = size - 1; i >= position; i--) {
+            elements[i + 1] = elements[i];
+
+        }
+        elements[position] = element;
+        size++;
+    }
+
     public String search(int position) {
         if (!(position >= 0 && position < size)) {
             throw new IllegalArgumentException("Invalid position");
         }
         return this.elements[position];
     }
-    
+
     public int searchIfExists(String element) {
-        for(int i = 0; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             if (elements[i].equals(element)) {
                 return i;
             }
