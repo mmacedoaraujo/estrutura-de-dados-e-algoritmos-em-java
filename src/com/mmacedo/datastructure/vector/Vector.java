@@ -39,8 +39,8 @@ public class Vector {
 
         for (int i = this.size - 1; i >= position; i--) {
             this.elements[i + 1] = this.elements[i];
-
         }
+
         this.elements[position] = element;
         this.size++;
     }
@@ -60,6 +60,16 @@ public class Vector {
             throw new IllegalArgumentException("Invalid position");
         }
         return this.elements[position];
+    }
+
+    public void removeElement(int position) {
+        if (!(position >= 0 && position < this.size)) {
+            throw new IllegalArgumentException("Invalid position");
+        }
+        for (int i = position; i <= this.size - 1; i++) {
+            this.elements[i] = this.elements[i + 1];
+        }
+        this.size--;
     }
 
     public int searchIfExists(String element) {
