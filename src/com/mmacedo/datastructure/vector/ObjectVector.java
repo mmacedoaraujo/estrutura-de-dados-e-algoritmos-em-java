@@ -1,26 +1,16 @@
 package com.mmacedo.datastructure.vector;
 
-public class Vector {
+public class ObjectVector {
 
-    private String[] elements;
+    private Object[] elements;
     private int size;
 
-    public Vector(int length) {
-        this.elements = new String[length];
+    public ObjectVector(int length) {
+        this.elements = new Object[length];
         this.size = 0;
     }
 
-   /* public void addNewElement(String element) {
-        for (int i = 0; i < elements.length; i++) {
-            if (this.elements[i] == null) {
-                this.elements[i] = element;
-                break;
-            }
-        }
-    }
-    */
-
-    public boolean addNewElement(String element) {
+    public boolean addNewElement(Object element) {
         this.addMoreCapacity();
         if (this.size < this.elements.length) {
             this.elements[this.size] = element;
@@ -30,10 +20,8 @@ public class Vector {
         return false;
     }
 
-    public void addNewElement(String element, int position) {
-        if (!(position >= 0 && position < this.size)) {
-            throw new IllegalArgumentException("Invalid position");
-        }
+    public void addNewElement(Object element, int position) {
+        positionValidator(position);
 
         this.addMoreCapacity();
 
@@ -47,7 +35,7 @@ public class Vector {
 
     private void addMoreCapacity() {
         if (this.size == this.elements.length) {
-            String[] newElementsVector = new String[this.elements.length * 2];
+            Object[] newElementsVector = new Object[this.elements.length * 2];
             for (int i = 0; i < this.elements.length; i++) {
                 newElementsVector[i] = this.elements[i];
             }
@@ -55,30 +43,32 @@ public class Vector {
         }
     }
 
-    public String search(int position) {
-        if (!(position >= 0 && position < this.size)) {
-            throw new IllegalArgumentException("Invalid position");
-        }
+    public Object search(int position) {
+        positionValidator(position);
         return this.elements[position];
     }
 
     public void removeElement(int position) {
-        if (!(position >= 0 && position < this.size)) {
-            throw new IllegalArgumentException("Invalid position");
-        }
+        positionValidator(position);
         for (int i = position; i <= this.size - 1; i++) {
             this.elements[i] = this.elements[i + 1];
         }
         this.size--;
     }
 
-    public int search(String element) {
+    public int search(Object element) {
         for (int i = 0; i < this.size; i++) {
             if (this.elements[i].equals(element)) {
                 return i;
             }
         }
         return -1;
+    }
+
+    public void positionValidator(int position) {
+        if (!(position >= 0 && position < this.size)) {
+            throw new IllegalArgumentException("Invalid position");
+        }
     }
 
     public int size() {

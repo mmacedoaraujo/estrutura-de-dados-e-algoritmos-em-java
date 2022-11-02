@@ -12,6 +12,6 @@ public class Class06 {
         vector.addNewElement("element 2");
         vector.addNewElement("element 3");
 
-        System.out.println(vector.searchIfExists("element 2"));
+        System.out.println(vector.search("element 2"));
     }
 }
