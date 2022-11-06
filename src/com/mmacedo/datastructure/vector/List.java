@@ -71,6 +71,10 @@ public class List<T> {
         }
     }
 
+    public boolean contains(T element) {
+        return search(element) > -1;
+    }
+
     public int size() {
         return this.size;
     }

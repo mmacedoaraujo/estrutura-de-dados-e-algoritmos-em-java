@@ -1,20 +1,18 @@
-package com.mmacedo.datastructure.test;
+package com.mmacedo.datastructure.vector_arrays_lists;
 
 import com.mmacedo.datastructure.vector.Vector;
 
-public class Class09 {
+public class Class08 {
 
     public static void main(String[] args) {
 
         Vector vector = new Vector(3);
 
         vector.addNewElement("B");
-        vector.addNewElement("G");
-        vector.addNewElement("D");
+        vector.addNewElement("C");
         vector.addNewElement("E");
         vector.addNewElement("F");
-
-        vector.removeElement(2);
+        vector.addNewElement("G");
 
         System.out.println(vector);
     }

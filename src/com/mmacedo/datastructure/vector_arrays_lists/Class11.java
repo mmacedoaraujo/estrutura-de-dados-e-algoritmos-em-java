@@ -1,4 +1,4 @@
-package com.mmacedo.datastructure.test;
+package com.mmacedo.datastructure.vector_arrays_lists;
 
 import com.mmacedo.datastructure.vector.List;
 

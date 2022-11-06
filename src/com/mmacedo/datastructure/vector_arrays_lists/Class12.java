@@ -1,4 +1,4 @@
-package com.mmacedo.datastructure.test;
+package com.mmacedo.datastructure.vector_arrays_lists;
 
 import java.util.ArrayList;
 
@@ -20,7 +20,7 @@ public class Class12 {
         boolean exists = arrayList.contains("A");
         if (exists) {
             System.out.println("Element does exists on the array");
-        }else {
+        } else {
             System.out.println("Element does not exists on the array");
         }
 
@@ -28,7 +28,7 @@ public class Class12 {
 
         if (pos > -1) {
             System.out.println("Element does exists on the array");
-        }else {
+        } else {
             System.out.println("Element does not exists on the array");
         }
 

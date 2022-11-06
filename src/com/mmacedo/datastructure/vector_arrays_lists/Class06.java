@@ -1,8 +1,8 @@
-package com.mmacedo.datastructure.test;
+package com.mmacedo.datastructure.vector_arrays_lists;
 
 import com.mmacedo.datastructure.vector.Vector;
 
-public class Class04 {
+public class Class06 {
 
     public static void main(String[] args) {
 
@@ -12,7 +12,6 @@ public class Class04 {
         vector.addNewElement("element 2");
         vector.addNewElement("element 3");
 
-        System.out.println(vector.size());
-        System.out.println(vector);
+        System.out.println(vector.search("element 2"));
     }
 }
