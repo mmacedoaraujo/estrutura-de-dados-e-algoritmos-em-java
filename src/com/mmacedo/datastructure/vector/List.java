@@ -84,6 +84,28 @@ public class List<T> {
         return -1;
     }
 
+    public void remove(T element) {
+        if (search(element) > -1) {
+            for (int i = search(element); i <= this.size; i++) {
+                this.elements[i] = this.elements[i + 1];
+            }
+
+            size--;
+        }
+    }
+
+    public void remove(int position) {
+        if (!(position >= 0 && position < this.size)) {
+            for (int i = position; i <= this.size; i++) {
+                this.elements[i] = this.elements[i + 1];
+            }
+
+            size--;
+        } else {
+            throw new IllegalArgumentException("Invalid position");
+        }
+    }
+
     public int size() {
         return this.size;
     }
