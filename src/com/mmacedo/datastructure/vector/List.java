@@ -43,7 +43,7 @@ public class List<T> {
         }
     }
 
-    public T search(int position) {
+    public T get(int position) {
         positionValidator(position);
         return this.elements[position];
     }
@@ -56,7 +56,7 @@ public class List<T> {
         this.size--;
     }
 
-    public int search(T element) {
+    public int get(T element) {
         for (int i = 0; i < this.size; i++) {
             if (this.elements[i].equals(element)) {
                 return i;
@@ -72,7 +72,7 @@ public class List<T> {
     }
 
     public boolean contains(T element) {
-        return search(element) > -1;
+        return get(element) > -1;
     }
 
     public int lastIndexOf(T element) {
@@ -85,25 +85,20 @@ public class List<T> {
     }
 
     public void remove(T element) {
-        if (search(element) > -1) {
-            for (int i = search(element); i <= this.size; i++) {
-                this.elements[i] = this.elements[i + 1];
-            }
-
-            size--;
+        positionValidator(get(element));
+        for (int i = get(element); i <= this.size; i++) {
+            this.elements[i] = this.elements[i + 1];
         }
+
+        size--;
     }
 
     public void remove(int position) {
-        if (!(position >= 0 && position < this.size)) {
-            for (int i = position; i <= this.size; i++) {
-                this.elements[i] = this.elements[i + 1];
-            }
-
-            size--;
-        } else {
-            throw new IllegalArgumentException("Invalid position");
+        positionValidator(position);
+        for (int i = position; i <= this.size; i++) {
+            this.elements[i] = this.elements[i + 1];
         }
+        size--;
     }
 
     public int size() {
