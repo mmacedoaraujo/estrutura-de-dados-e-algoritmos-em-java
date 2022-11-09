@@ -1,6 +1,7 @@
 package com.mmacedo.datastructure.vector_arrays_lists;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Class12 {
 
@@ -40,5 +41,9 @@ public class Class12 {
         System.out.println(arrayList);
 
         System.out.println(arrayList.size());
+        List<String> list = new ArrayList<>();
+        list.add("avaasdsadsdaxc");
+
+        System.out.println(list.lastIndexOf("x"));
     }
 }
