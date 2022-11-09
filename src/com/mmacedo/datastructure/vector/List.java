@@ -101,6 +101,13 @@ public class List<T> {
         size--;
     }
 
+    public void clear() {
+        for (int i = 0; i < this.size; i++) {
+            this.elements[i] = null;
+        }
+        this.size = 0;
+    }
+
     public int size() {
         return this.size;
     }
