@@ -2,18 +2,18 @@ package com.mmacedo.datastructure.vector_arrays_lists;
 
 import java.util.Objects;
 
-public class Class10Contact {
+public class Contact {
 
     private String name;
-    private String telefone;
+    private Integer number;
     private String email;
 
-    public Class10Contact() {
+    public Contact() {
     }
 
-    public Class10Contact(String name, String telefone, String email) {
+    public Contact(String name, Integer number, String email) {
         this.name = name;
-        this.telefone = telefone;
+        this.number = number;
         this.email = email;
     }
 
@@ -25,12 +25,12 @@ public class Class10Contact {
         this.name = name;
     }
 
-    public String getTelefone() {
-        return telefone;
+    public Integer getNumber() {
+        return number;
     }
 
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setNumber(Integer number) {
+        this.number = number;
     }
 
     public String getEmail() {
@@ -45,20 +45,20 @@ public class Class10Contact {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Class10Contact that = (Class10Contact) o;
-        return Objects.equals(name, that.name) && Objects.equals(telefone, that.telefone) && Objects.equals(email, that.email);
+        Contact that = (Contact) o;
+        return Objects.equals(name, that.name) && Objects.equals(number, that.number) && Objects.equals(email, that.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, telefone, email);
+        return Objects.hash(name, number, email);
     }
 
     @Override
     public String toString() {
-        return "Class10Contact{" +
+        return "Contact{" +
                 "name='" + name + '\'' +
-                ", telefone='" + telefone + '\'' +
+                ", number='" + number + '\'' +
                 ", email='" + email + '\'' +
                 '}';
     }

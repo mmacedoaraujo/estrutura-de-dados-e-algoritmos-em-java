@@ -8,10 +8,10 @@ public class Class10 {
 
         ObjectVector vector = new ObjectVector(3);
 
-        Class10Contact c1 = new Class10Contact("Contato1", "12345342", "contato1@gmail.com");
-        Class10Contact c2 = new Class10Contact("Contato2", "12345342", "contato2@gmail.com");
-        Class10Contact c3 = new Class10Contact("Contato3", "12345342", "contato3@gmail.com");
-        Class10Contact c4 = new Class10Contact("Contato1", "12345342", "contato1@gmail.com");
+        Contact c1 = new Contact("Contato1", 12345342, "contato1@gmail.com");
+        Contact c2 = new Contact("Contato2", 12345342, "contato2@gmail.com");
+        Contact c3 = new Contact("Contato3", 12345342, "contato3@gmail.com");
+        Contact c4 = new Contact("Contato1", 12345342, "contato1@gmail.com");
 
         vector.addNewElement(c1);
         vector.addNewElement(c2);
