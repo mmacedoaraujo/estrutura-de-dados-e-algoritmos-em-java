@@ -19,6 +19,11 @@ public class ExerciseVectorArraysLists06 {
         while (option != 0) {
             option = getOptionFromMenu(scan);
             menuActions(option, contactList, scan);
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         System.out.println("Usuário digitou 0, programa encerrou.");
@@ -27,94 +32,91 @@ public class ExerciseVectorArraysLists06 {
 
     private static void menuActions(int option, List<Contact> list, Scanner scan) {
         Contact contact = new Contact();
+        int position = 0;
         switch (option) {
             case 1:
+                System.out.println("Criando um contato no final do vetor, entre com as informações: ");
+                contactInformationGatherer(scan, list, contact, option);
                 try {
-                    System.out.println("Insira o nome do contato: ");
-                    String name = scan.nextLine();
-                    System.out.println("Insira o número do contato: ");
-                    Integer number = Integer.valueOf(scan.nextLine());
-                    System.out.println("Insira o email do contato: ");
-                    String email = scan.nextLine();
-                    Contact contactCreated = new Contact(name, number, email);
-                    list.addNewElement(contactCreated);
-                    System.out.println("\n" + list.get(list.size() - 1) + "\n");
+                    list.addNewElement(contact);
+                    System.out.println("Elemento adicionado com sucesso!");
                 } catch (Exception ex) {
-                    System.out.println("\nEntrada inválida, tente novamente.\n");
-                    menuActions(1, list, scan);
+                    System.out.println("Erro ao inserir novo elemento");
                 }
-
                 break;
             case 2:
                 try {
+                    System.out.println("Adicionando um contato numa posição específica, entre com as informações: ");
                     System.out.println("Insira a posição em que deseja inserir o contato: ");
-                    Integer position = Integer.valueOf(scan.nextLine());
+                    position = Integer.valueOf(scan.nextLine());
                     System.out.println("Insira o nome do contato: ");
                     String name = scan.nextLine();
                     System.out.println("Insira o número do contato: ");
                     Integer number = Integer.valueOf(scan.nextLine());
                     System.out.println("Insira o email do contato: ");
-                    String email = scan.nextLine();
-                    Contact contactCreated = new Contact(name, number, email);
-                    list.addNewElement(contactCreated, position);
-                    System.out.println(list.get(position));
-                } catch (Exception ex) {
-                    System.out.println("\nEntrada inválida, tente novamente.\n");
-                    menuActions(1, list, scan);
-                }
-                break;
-
-            case 3:
-                try {
-                    System.out.println("Insira a posição do contato: ");
-                    Integer position = Integer.valueOf(scan.nextLine());
-                    System.out.println(list.get(position));
-                } catch (Exception ex) {
-                    System.out.println("\nEntrada inválida, tente novamente.\n");
-                    menuActions(3, list, scan);
-                }
-                break;
-            case 4:
-                try {
-                    System.out.println("Insira o nome do contato que deseja saber a posição: ");
-                    String name = scan.nextLine();
-                    System.out.println("Insira o número do contato que deseja saber a posição: ");
-                    Integer number = Integer.valueOf(scan.nextLine());
-                    System.out.println("Insira o email do contato que deseja saber a posição: ");
                     String email = scan.nextLine();
                     contact.setName(name);
                     contact.setNumber(number);
                     contact.setEmail(email);
-                    System.out.println(list.get(contact));
                 } catch (Exception ex) {
-                    System.out.println("\nEntrada inválida, tente novamente.\n");
-                    menuActions(3, list, scan);
+                    menuReturnWhenExceptionOccurs(option, list, scan);
+                }
+                try {
+                    list.addNewElement(contact, position);
+                    System.out.println("Elemento adicionado com sucesso!");
+                } catch (Exception ex) {
+                    System.out.println("Erro ao inserir novo elemento");
                 }
                 break;
-            case 5:
+            case 3:
+                try {
+                    System.out.println("Obtendo um contato  de uma posição específica, entre com a posição que deseja saber: ");
+                    position = Integer.valueOf(scan.nextLine());
+                } catch (Exception ex) {
+                    menuReturnWhenExceptionOccurs(option, list, scan);
+                }
+                System.out.println(list.get(position));
+                break;
 
+            case 4:
+                System.out.println("Consultando um contato, entre com as informações: ");
+                contactInformationGatherer(scan, list, contact, option);
+                System.out.println(list.get(contact));
+                break;
+            case 5:
+                System.out.println("Consultando o último índice do contato, entre com as informações: ");
+                contactInformationGatherer(scan, list, contact, option);
+                System.out.println(list.lastIndexOf(contact));
                 break;
             case 6:
-
+                System.out.println("Verificando se o contato existe, entre com as informações: ");
+                contactInformationGatherer(scan, list, contact, option);
+                System.out.println(list.contains(contact));
                 break;
             case 7:
-
+                try {
+                    System.out.println("Excluindo um contato pela posição, entre com a posição desejada: ");
+                    position = Integer.valueOf(scan.nextLine());
+                    list.remove(position);
+                } catch (Exception ex) {
+                    menuReturnWhenExceptionOccurs(option, list, scan);
+                }
                 break;
-
             case 8:
-
+                System.out.println("Excluindo um contato, entre com as informações: ");
+                contactInformationGatherer(scan, list, contact, option);
+                list.remove(contact);
                 break;
-
             case 9:
-
+                System.out.println("\n O tamanho do vetor é: " + list.size() + "\n");
                 break;
 
             case 10:
-
+                list.clear();
                 break;
 
             case 11:
-
+                System.out.println("\n" + list + "\n");
                 break;
 
 
@@ -173,5 +175,26 @@ public class ExerciseVectorArraysLists06 {
             contact.setEmail("contact" + i + "@gmail.com");
             list.addNewElement(contact);
         }
+    }
+
+    public static void contactInformationGatherer(Scanner scan, List<Contact> list, Contact contact, int option) {
+        try {
+            System.out.println("Insira o nome do contato: ");
+            String name = scan.nextLine();
+            System.out.println("Insira o número do contato: ");
+            Integer number = Integer.valueOf(scan.nextLine());
+            System.out.println("Insira o email do contato: ");
+            String email = scan.nextLine();
+            contact.setName(name);
+            contact.setNumber(number);
+            contact.setEmail(email);
+        } catch (Exception ex) {
+            menuReturnWhenExceptionOccurs(option, list, scan);
+        }
+    }
+
+    public static void menuReturnWhenExceptionOccurs(int option, List<Contact> list, Scanner scan) {
+        System.out.println("\nEntrada inválida, tente novamente.\n");
+        menuActions(option, list, scan);
     }
 }
