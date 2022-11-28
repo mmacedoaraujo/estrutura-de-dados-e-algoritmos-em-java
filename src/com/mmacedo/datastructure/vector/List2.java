@@ -17,5 +17,10 @@ public class List2<T> extends StaticStructure {
         return super.addNewElement(element);
     }
 
+    @Override
+    protected void addNewElement(Object element, int position) {
+        super.addNewElement(element, position);
+    }
+
 
 }
