@@ -2,7 +2,6 @@ package com.mmacedo.datastructure.vector_arrays_lists;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 import java.util.Scanner;
 import java.util.stream.Collectors;
 
