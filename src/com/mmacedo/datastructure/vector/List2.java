@@ -8,8 +8,8 @@ public class List2<T> extends StaticStructure {
         super();
     }
 
-    public List2(int size) {
-        super(size);
+    public List2(int capacity) {
+        super(capacity);
     }
 
     @Override
