@@ -65,7 +65,7 @@ public class List<T> {
         return -1;
     }
 
-    public void positionValidator(int position) {
+    private void positionValidator(int position) {
         if (!(position >= 0 && position < this.size)) {
             throw new IllegalArgumentException("Invalid position");
         }
