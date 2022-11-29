@@ -2,13 +2,17 @@ package com.mmacedo.datastructure.base;
 
 public class StaticStructure<T> {
 
-    private T[] elements;
-    private int size;
+    protected T[] elements;
+    protected int size;
 
     public StaticStructure() {
+        this(10);
     }
 
-    public StaticStructure(int length) {
+    public StaticStructure(Integer length) {
+        if (length == 0) {
+            length = 10;
+        }
         this.elements = (T[]) new Object[length]; //solution provided by book effective java
         this.size = 0;
     }
@@ -42,7 +46,7 @@ public class StaticStructure<T> {
         }
     }
 
-    private void addMoreCapacity() {
+    protected void addMoreCapacity() {
         if (this.size == this.elements.length) {
             T[] newElementsVector = (T[]) new Object[this.elements.length * 2];
             for (int i = 0; i < this.elements.length; i++) {
