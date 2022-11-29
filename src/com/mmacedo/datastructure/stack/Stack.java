@@ -16,4 +16,9 @@ public class Stack<T> extends StaticStructure<T> {
     public void push(T element) {
         super.addNewElement(element);
     }
+
+    @Override
+    public boolean isEmpty() {
+        return super.isEmpty();
+    }
 }
