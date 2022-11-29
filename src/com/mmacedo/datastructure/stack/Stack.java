@@ -21,4 +21,12 @@ public class Stack<T> extends StaticStructure<T> {
     public boolean isEmpty() {
         return super.isEmpty();
     }
+
+    public T peek() {
+        if (this.isEmpty()) {
+            return null;
+        }
+
+        return this.elements[this.size - 1];
+    }
 }
