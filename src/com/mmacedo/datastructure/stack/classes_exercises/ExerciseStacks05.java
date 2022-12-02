@@ -1,5 +1,6 @@
 package com.mmacedo.datastructure.stack.classes_exercises;
 
+import java.text.Normalizer;
 import java.util.Scanner;
 import java.util.Stack;
 
@@ -7,8 +8,7 @@ public class ExerciseStacks05 {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        String checkingString = "s";
-        while (checkingString.equals("s")) {
+        while (true) {
             System.out.println("Insira a expressão que deseja verificar se é um palíndromo: ");
             String palindromeString = scan.nextLine();
 
@@ -22,11 +22,6 @@ public class ExerciseStacks05 {
             }
 
             System.out.println(isPalindrome(stringStack, reverseStringStack));
-
-            System.out.println("Deseja verificar outra expressão? [s/n]");
-            checkingString = scan.nextLine();
-
-
         }
     }
 
@@ -43,8 +38,11 @@ public class ExerciseStacks05 {
     }
 
     static Stack<String> stackCreator(String palindrome, Stack<String> palindromeStack) {
-        for (int i = palindrome.length() - 1; i >= 0; i--) {
-            palindromeStack.push(palindrome.substring(i, i + 1).toUpperCase());
+        String normalized = Normalizer.normalize(palindrome, Normalizer.Form.NFD);
+        String accentRemoved = normalized.replaceAll("\\p{InCombiningDiacriticalMarks}+", "");
+        String nonWordsAndAccentsRemoved = accentRemoved.replaceAll("\\W", "");
+        for (int i = nonWordsAndAccentsRemoved.length() - 1; i >= 0; i--) {
+            palindromeStack.push(nonWordsAndAccentsRemoved.substring(i, i + 1).toUpperCase());
         }
         return palindromeStack;
     }
