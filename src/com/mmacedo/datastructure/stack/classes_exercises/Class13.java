@@ -1,5 +1,6 @@
 package com.mmacedo.datastructure.stack.classes_exercises;
 
+import com.mmacedo.datastructure.queue.Queue;
 import com.mmacedo.datastructure.stack.Stack;
 
 public class Class13 {
