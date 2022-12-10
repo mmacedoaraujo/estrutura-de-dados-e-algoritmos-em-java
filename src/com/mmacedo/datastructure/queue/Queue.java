@@ -3,18 +3,23 @@ package com.mmacedo.datastructure.queue;
 import com.mmacedo.datastructure.base.StaticStructure;
 
 public class Queue<T> extends StaticStructure {
+    public Queue() {
+        super();
+    }
 
     public Queue(Integer length) {
         super(length);
     }
 
-    public boolean offer(T element) throws Exception {
+    public void offer(T element) throws Exception {
         if (this.size < this.elements.length) {
             this.elements[this.size] = element;
             this.size++;
-            return true;
+        } else {
+            addMoreCapacity();
+            this.elements[this.size] = element;
+            this.size++;
         }
-        return false;
     }
 
     public T peek() {
@@ -33,11 +38,6 @@ public class Queue<T> extends StaticStructure {
     }
 
     @Override
-    protected void addMoreCapacity() {
-        super.addMoreCapacity();
-    }
-
-    @Override
     public boolean isEmpty() {
         return super.isEmpty();
     }
@@ -45,10 +45,6 @@ public class Queue<T> extends StaticStructure {
     @Override
     public int size() {
         return super.size();
-    }
-
-    public Queue() {
-        super();
     }
 
 

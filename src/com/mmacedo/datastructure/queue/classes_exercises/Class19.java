@@ -6,7 +6,8 @@ public class Class19 {
 
     public static void main(String[] args) throws Exception {
 
-        Queue<Integer> queue = new Queue<>(10);
+        Queue<Integer> queue = new Queue<>();
+        System.out.println(queue.isEmpty());
 
         queue.offer(1);
         queue.offer(2);
@@ -17,7 +18,7 @@ public class Class19 {
         queue.offer(5);
         queue.offer(5);
         queue.offer(5);
-
+        System.out.println(queue.isEmpty());
         System.out.println(queue.peek());
         queue.poll();
         System.out.println(queue.peek());
