@@ -47,5 +47,10 @@ public class Queue<T> extends StaticStructure {
         return super.size();
     }
 
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+
 
 }
