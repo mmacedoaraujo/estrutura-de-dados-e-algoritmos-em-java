@@ -8,27 +8,28 @@ public class Queue<T> extends StaticStructure {
         super(length);
     }
 
-    @Override
-    public boolean addNewElement(Object element) {
-        return super.addNewElement(element);
+    public boolean offer(T element) throws Exception {
+        if (this.size < this.elements.length) {
+            this.elements[this.size] = element;
+            this.size++;
+            return true;
+        }
+        return false;
     }
 
-    @Override
-    protected void addNewElement(Object element, int position) {
-        super.addNewElement(element, position);
-    }
     public T peek() {
         if (this.isEmpty()) {
             return null;
         }
         return (T) this.elements[0];
     }
+
     public void poll() {
-        for (int i = 0; i < size; i++) {
+        for (int i = 0; i < size - 1; i++) {
             this.elements[i] = this.elements[i + 1];
         }
-
         size--;
+
     }
 
     @Override
