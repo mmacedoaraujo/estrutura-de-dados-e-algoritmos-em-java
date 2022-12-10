@@ -17,8 +17,13 @@ public class Queue<T> extends StaticStructure {
     protected void addNewElement(Object element, int position) {
         super.addNewElement(element, position);
     }
-
-    public void remove() {
+    public T peek() {
+        if (this.isEmpty()) {
+            return null;
+        }
+        return (T) this.elements[0];
+    }
+    public void poll() {
         for (int i = 0; i < size; i++) {
             this.elements[i] = this.elements[i + 1];
         }

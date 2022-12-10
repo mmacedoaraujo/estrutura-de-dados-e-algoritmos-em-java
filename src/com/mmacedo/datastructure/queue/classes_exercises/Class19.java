@@ -11,7 +11,10 @@ public class Class19 {
         queue.addNewElement(1);
         queue.addNewElement(2);
         queue.addNewElement(3);
+        queue.addNewElement(4);
 
-        queue.remove();
+        System.out.println(queue.peek());
+        queue.poll();
+        System.out.println(queue.peek());
     }
 }
