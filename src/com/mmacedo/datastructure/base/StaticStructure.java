@@ -41,7 +41,7 @@ public class StaticStructure<T> {
     }
 
     private void positionValidator(int position) {
-        if (!(position >= 0 && position < this.size)) {
+        if (!(position >= 0 && position <= this.size)) {
             throw new IllegalArgumentException("Invalid position");
         }
     }
