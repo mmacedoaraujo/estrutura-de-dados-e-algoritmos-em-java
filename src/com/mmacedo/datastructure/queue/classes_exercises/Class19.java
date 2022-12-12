@@ -22,5 +22,6 @@ public class Class19 {
         System.out.println(queue.peek());
         queue.poll();
         System.out.println(queue.peek());
+        System.out.println(queue);
     }
 }
