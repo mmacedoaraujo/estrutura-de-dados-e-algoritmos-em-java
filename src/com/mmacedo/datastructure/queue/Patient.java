@@ -5,7 +5,7 @@ import java.util.Objects;
 public class Patient implements Comparable<Patient> {
 
     private String name;
-    private int priority;
+    private Integer priority;
 
     public Patient() {
     }
