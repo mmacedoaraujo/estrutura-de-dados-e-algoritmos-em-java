@@ -5,7 +5,7 @@ import com.mmacedo.datastructure.queue.Patient;
 import java.util.LinkedList;
 import java.util.Queue;
 
-public class ExerciseQueue01 {
+public class ExerciseQueue02 {
 
     public static void main(String[] args) throws Exception {
 
