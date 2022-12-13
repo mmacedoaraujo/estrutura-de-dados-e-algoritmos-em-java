@@ -51,6 +51,6 @@ public class Patient implements Comparable<Patient> {
 
     @Override
     public int compareTo(Patient o) {
-        return Integer.compare(this.priority, o.getPriority());
+        return Integer.valueOf(this.priority).compareTo(o.getPriority());
     }
 }
