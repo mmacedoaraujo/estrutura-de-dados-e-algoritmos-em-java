@@ -1,0 +1,14 @@
+
+h
+java:S1192"FDefine a constant instead of duplicating this literal "Bento" 6 times.(ž×Éªøÿÿÿÿ8±º…äÐ0
+k
+java:S3655""PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(œÛÿºþÿÿÿÿ
+k
+java:S3655*"PCall "Optional#isPresent()" or "!Optional#isEmpty()" before accessing the value.(è¤Ü€þÿÿÿÿ
+Ž
+java:S1130
+"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ÙØ¤Þýÿÿÿÿ8ÂüûãÐ0
+F
+java:S1481"0Remove this unused "sortedQueue" local variable.(ñƒ©ë
+>
+java:S1940#")Use the opposite operator ("!=") instead.(¬½¹O
