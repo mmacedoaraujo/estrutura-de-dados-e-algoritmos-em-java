@@ -23,8 +23,24 @@ public class LinkedList<T> {
 
     @Override
     public String toString() {
-        return "LinkedList{" +
-                "begin=" + begin +
-                '}';
+
+        if (this.size == 0) {
+            return "[]";
+        }
+
+        StringBuilder builder = new StringBuilder("[");
+        Node<T> actual = this.begin;
+        builder.append(actual.getElement()).append(", ");
+        while (actual.getNext() != null) {
+            actual = actual.getNext();
+            if (actual.getNext() == null) {
+                builder.append(actual.getElement()).append("]");
+            } else {
+                builder.append(actual.getElement()).append(", ");
+            }
+
+        }
+
+        return builder.toString();
     }
 }
