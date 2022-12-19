@@ -21,6 +21,19 @@ public class LinkedList<T> {
         return this.size;
     }
 
+    public void clear() {
+        for (Node<T> actual = this.begin; actual != null; ) {
+            Node<T> next = actual.getNext();
+            actual.setElement(null);
+            actual.setNext(null);
+            actual = next;
+        }
+
+        this.begin = null;
+        this.end = null;
+        this.size = 0;
+    }
+
     @Override
     public String toString() {
 
